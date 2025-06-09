@@ -28,7 +28,9 @@ def signatureDetection(imagePath,saveDir,signatureNumber,imgPro):
 
     os.makedirs(saveDir, exist_ok=True)  # Make sure directory exists
     os.makedirs(imgPro, exist_ok=True)  # Make sure directory exists
-
+#if loader isnt taking your whole signature use histogram.py, and change only last number in low_threshold aka value
+#if cropper isnt giving you your signature as whole set low_threshold little higher, still before max value of the hist
+#for extractor this is best solution for image shot with smartphone camera, for scanned img you should use different values
     loader = Loader(
         low_threshold=(0,0,180),
         high_threshold=(255, 255, 255))
@@ -68,6 +70,7 @@ def signatureDetection(imagePath,saveDir,signatureNumber,imgPro):
 
 
     results = cropper.run(labeled_mask)
+    #if you want to see size of the regions uncomment
     # num_regions = len(results)
     # print(f"Number of regions cropped: {num_regions}")
     # total_area = 0
