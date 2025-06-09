@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-
+#use this if you cant get whole signature detected
 def plot_highlighted_histogram(imagePath):
     # Read image in grayscale
     img = cv2.imread(imagePath, cv2.IMREAD_GRAYSCALE)
