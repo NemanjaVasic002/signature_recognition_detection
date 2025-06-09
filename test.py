@@ -12,9 +12,7 @@ def test(csvFile,datasetLoc):
         transforms.ToTensor()
     ])
 
-    # Load test dataset
-    #resizeSignatures(r"D:\SignatureDetection\ProjekatSOS\SingatureDetectedLibrary\Test", r"D:\SignatureDetection\ProjekatSOS\SingatureDetectedLibrary\TestResize", target_height=512,targetWidth= 512)
-
+   
     test_dataset = SignatureDataset(csv_file=csvFile, root_dir=datasetLoc, transform=transform)
     test_loader = DataLoader(test_dataset, batch_size=1, shuffle=False)
 
