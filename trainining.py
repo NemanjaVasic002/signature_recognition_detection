@@ -3,7 +3,6 @@ from nn import *
 
 def training(csvFile,datasetLoc,numberOfTrainingExamples):
 
-#resizeSignatures(r"D:\SignatureDetection\ProjekatSOS\SingatureDetectedLibrary\Nemanja", r"D:\SignatureDetection\ProjekatSOS\SingatureDetectedLibrary\NResize", target_height=512,targetWidth= 512)
     dataset = SignatureDataset(csv_file=csvFile,root_dir=datasetLoc, transform=transform)
     loader = DataLoader(dataset, batch_size=64, shuffle=True)
 
