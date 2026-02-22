@@ -36,13 +36,4 @@ Models were evaluated using metrics optimized for imbalanced datasets:
 
 The Triplet Network architecture demonstrated the highest robustness in detecting skilled forgeries by optimizing the distance between signature embeddings.
 
-Installation and Usage
-```bash
-# Clone the repository
-git clone [https://github.com/your-username/signature-verification.git](https://github.com/your-username/signature-verification.git)
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run the main extraction and verification script
-python main.py --input sample_document.pdf
+In CNN folder is verification using standard CNN, in siamese folder is code for verification using siamese network
