@@ -1,34 +1,48 @@
-# signature_recognition_detection
-This project combines classical image processing and a Convolutional Neural Network (CNN) to detect, extract, and classify signatures from images — distinguishing between original and forged signatures.
-📌 Features
+# Comparative Analysis of Deep Learning Architectures for Signature Verification
 
-    ✔️ Signature Detection using color thresholds and contour analysis.
+This project implements a complete computer vision pipeline for automated signature detection and authenticity verification from scanned documents. The research focuses on applying Deep Metric Learning to distinguish genuine signatures from skilled forgeries.
 
-    ✨ Shadow Removal using Multi-Scale Retinex.
+## Key Features
+* **End-to-End Pipeline:** From raw scanned documents to final authenticity verification.
+* **Advanced Segmentation:** Utilizes Retinex filtering and the Suzuki-Abe algorithm for precise signature extraction from complex backgrounds.
+* **Deep Metric Learning:** Implementation of Siamese and Triplet networks focused on similarity learning.
+* **Comparative Study:** Detailed evaluation and benchmarking of CNN, Siamese, and Triplet architectures.
 
-    🔍 Automatic Cropping of signature regions.
+##Technologies
+* **Language:** Python
+* **Deep Learning:** TensorFlow, Keras, PyTorch
+* **Computer Vision:** OpenCV (Retinex, CCL, Suzuki-Abe)
+* **Data Analysis:** NumPy, Pandas, Matplotlib, Scikit-learn
 
-    🧠 CNN Model trained to classify signatures as genuine or fake.
+##System Architecture
 
-    🛠️ Tools to combine and preprocess images, visualize histograms, and resize datasets.
+### 1. Detection and Extraction (Preprocessing)
+Before verification, the system localizes signatures using:
+* **Retinex Filter:** For illumination normalization.
+* **Connected Component Labeling (CCL):** Combined with histogram analysis for text isolation.
+* **Suzuki-Abe Algorithm:** For precise contour detection and signature extraction.
 
+### 2. Verification Models
+Three main architectures were implemented and tested:
+* **Standard CNN:** Used as a baseline for classification tasks.
+* **Siamese Networks:** Utilizing pair-wise inputs and Contrastive Loss.
+* **Triplet Networks:** Utilizing Triplet Loss (Anchor, Positive, Negative) to create a robust embedding space.
 
-    🔹 Step 1: Preprocess the Image
+## 📊 Evaluation Metrics
+Models were evaluated using metrics optimized for imbalanced datasets:
+* **AUC-ROC Curve**
+* **Precision-Recall Curve**
+* **Cost-Sensitive Accuracy**
 
-    Apply Multi-Scale Retinex to reduce shadows.
+The Triplet Network architecture demonstrated the highest robustness in detecting skilled forgeries by optimizing the distance between signature embeddings.
 
-    Extract signature region via HSV thresholding.
+Installation and Usage
+```bash
+# Clone the repository
+git clone [https://github.com/your-username/signature-verification.git](https://github.com/your-username/signature-verification.git)
 
-🔹 Step 2: Extract Signature
+# Install dependencies
+pip install -r requirements.txt
 
-    Label potential signature blobs.
-
-    Filter using heuristics (area, pixel density).
-
-    Crop and save the best candidate(s).
-
-🔹 Step 3: Classification
-
-    Train a CNN model on pre-labeled signature images.
-
-    Classify new signature crops as original or forged.
+# Run the main extraction and verification script
+python main.py --input sample_document.pdf
