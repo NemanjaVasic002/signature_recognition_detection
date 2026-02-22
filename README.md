@@ -33,7 +33,10 @@ Models were evaluated using metrics optimized for imbalanced datasets:
 * **AUC-ROC Curve**
 * **Precision-Recall Curve**
 * **Cost-Sensitive Accuracy**
-
+##Documentation
+Detailed technical reports and research papers are available in the `/docs` folder:
+* [Signature Verification  (Serbian Language)](docs/ComparableAnalysis.pdf)
+* [Signature Detection and Verification Pipeline (Serbian Language)](docs/Signature_Detection.pdf)
 The Triplet Network architecture demonstrated the highest robustness in detecting skilled forgeries by optimizing the distance between signature embeddings.
 
 In CNN folder is verification using standard CNN, in siamese folder is code for verification using siamese network
